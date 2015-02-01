@@ -51,7 +51,7 @@ var tss;
             var defaultLibPath = path.join(this.getTypeScriptBinDir(), defaultLib);
             this.files[defaultLib] = { version: 0, text: fs.readFileSync(defaultLibPath).toString() };
             this.files[FILENAME_TS] = { version: 0, text: '' };
-            var servicesHost = {
+            var serviceHost = {
                 getScriptFileNames: function () { return [_this.getDefaultLibFilename(_this.options), FILENAME_TS]; },
                 getScriptVersion: function (filename) { return _this.files[filename] && _this.files[filename].version.toString(); },
                 getScriptSnapshot: function (filename) {
@@ -73,7 +73,7 @@ var tss;
                 trace: function (message) { return console.debug(message); },
                 error: function (message) { return console.error(message); }
             };
-            return ts.createLanguageService(servicesHost, ts.createDocumentRegistry());
+            return ts.createLanguageService(serviceHost, ts.createDocumentRegistry());
         };
         TypeScriptSimple.prototype.getTypeScriptBinDir = function () {
             return path.dirname(require.resolve('typescript'));
