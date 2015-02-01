@@ -77,7 +77,9 @@ module tss {
                 getDefaultLibFilename: (options: ts.CompilerOptions) => {
                     return this.getDefaultLibFilename(options);
                 },
-                log: (message) => console.log(message)
+                log: (message) => console.log(message),
+                trace: (message) => console.debug(message),
+                error: (message) => console.error(message)
             };
 
             return ts.createLanguageService(servicesHost, ts.createDocumentRegistry())

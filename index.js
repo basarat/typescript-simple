@@ -69,7 +69,9 @@ var tss;
                 getDefaultLibFilename: function (options) {
                     return _this.getDefaultLibFilename(options);
                 },
-                log: function (message) { return console.log(message); }
+                log: function (message) { return console.log(message); },
+                trace: function (message) { return console.debug(message); },
+                error: function (message) { return console.error(message); }
             };
             return ts.createLanguageService(servicesHost, ts.createDocumentRegistry());
         };
